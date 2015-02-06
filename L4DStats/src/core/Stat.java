@@ -3,7 +3,7 @@ package core;
 public class Stat
 {
 	private String name;
-	private double value;
+	private int value;
 
 	
 	public String getName()
@@ -14,12 +14,13 @@ public class Stat
 	{
 		this.name = name;
 	}
-	public double getValue()
+	public int getValue()
 	{
 		return value;
 	}
 	public void setValue(String value)
 	{
-		this.value = Double.parseDouble(value);
+		double originalDouble = Double.parseDouble(value);
+		this.value = (int) originalDouble;
 	}
 }

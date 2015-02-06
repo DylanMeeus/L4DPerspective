@@ -3,7 +3,7 @@ package core;
 public enum Weapon
 {
 	Akimbo (0.009),
-	Deagle (0.0127),
+	Deagle (0.041), // .44 Remington Magnum
 	M16(0.0556),
 	AK(0.056),
 	SCAR(0.05740),

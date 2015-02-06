@@ -4,16 +4,18 @@ public class Perspective
 {
 	private String text;
 	private String name;
-	
+	private double value;
+
 	public Perspective()
 	{
 		
 	}
 	
-	public Perspective(String name, String text)
+	public Perspective(String name, String text, double value)
 	{
 		this.name = name;
 		this.text = text;
+		this.value = value;
 	}
 	
 	public String getText()
@@ -36,4 +38,13 @@ public class Perspective
 		this.name = name;
 	}
 
+	public double getValue()
+	{
+		return value;
+	}
+	
+	public void setValue(double value)
+	{
+		this.value = value;
+	}
 }

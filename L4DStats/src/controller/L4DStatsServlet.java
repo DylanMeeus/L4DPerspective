@@ -61,6 +61,10 @@ public class L4DStatsServlet extends HttpServlet
 			{
 				destination = login(request, response);
 			}
+			else if(action.equals("weaponoverview"))
+			{
+				destination = navigateWeaponOverview(request,response);
+			}
 		}
 		request.setAttribute("errors", errors);
 		RequestDispatcher view = request.getRequestDispatcher(destination);
@@ -72,18 +76,26 @@ public class L4DStatsServlet extends HttpServlet
 			ex.printStackTrace();
 		}
 	}
+	
+	private String navigateWeaponOverview(HttpServletRequest request, HttpServletResponse response)
+	{
+		request.setAttribute("profile", facade.getProfile());
+		request.setAttribute("stats", facade.generateWeaponPerspectives()); // We already know it is valid when we are here.
+		return "WeaponOverview.jsp";
+	}
 
 	private String login(HttpServletRequest request, HttpServletResponse response)
 	{
 		String steamID = request.getParameter("steamid");
+		facade.setSteamID(steamID);
 		String destination = "";
 		if (validID(steamID))
 		{
-			request.setAttribute("profile", facade.getProfile(steamID));
+			request.setAttribute("profile", facade.getProfile());
 //			request.setAttribute("games", facade.getGames(steamID));
 //			request.setAttribute("totalcost", facade.getTotal());
 			destination = "overview.jsp";
-			request.setAttribute("stats", facade.generatePerspectives(steamID));
+			request.setAttribute("stats", facade.generateGeneralPerspectives());
 		} else
 		{
 			destination = "steamlogin.jsp";

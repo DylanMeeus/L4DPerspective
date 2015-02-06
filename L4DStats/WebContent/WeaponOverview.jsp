@@ -44,10 +44,10 @@
 				<div class="masthead clearfix">
 					<div class="inner">
 						<h3 class="masthead-brand">L4D2 in perspective.</h3>
-						<h2>Beta!</h2>
-						<br>
+						<h2> Beta!</h2>
+							<br>						
 					</div>
-					<h1>Profile information</h1>
+							<h1>Profile information</h1>
 				</div>
 
 				<div class="inner cover">
@@ -57,33 +57,26 @@
 					<p>
 						<img src="${profile.avatarmediumURL}" />
 					</p>
-					<p class="lead">Global stats</p>
+					<p class="lead">
+					Weapon stats
+					</p>
 
 				</div>
 
 				<div class="mastfoot">
 					<div class="inner">
-						<!--  some global stats -->
-						<table border="1">
-							<!--  actually working with the Perspective object, not Stat! Maybe clean that up later -->
-							<c:forEach var="stat" items="${stats }">
-								<tr>
-									<td width=200>${stat.name}</td>
-									<td>${stat.value}</td>
-									<td width=800>${stat.text }</td>
-								</tr>
-							</c:forEach>
-						</table>
+					<!--  some global stats -->
+					<table border="1">
+					<!--  actually working with the Perspective object, not Stat! Maybe clean that up later -->
+					<c:forEach var="stat" items="${stats }">
+						<tr>
+						<td width=200> ${stat.name}</td> <td> ${stat.value}</td> <td width=800> ${stat.text }</td>
+						</tr>
+					</c:forEach>
+					</table>
 					</div>
 				</div>
-				<form method="post" action="Servlet?action=weaponoverview">
-					<fieldset>
-						<p>Want to see the weapon stats in perspective?</p>
-						<div id="button">
-							<input type="submit" value="Weapons" />
-						</div>
-					</fieldset>
-				</form>
+
 			</div>
 
 		</div>
