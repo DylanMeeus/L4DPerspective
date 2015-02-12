@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<!--  for number formatting -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +72,7 @@
 							<c:forEach var="stat" items="${stats }">
 								<tr>
 									<td width=200>${stat.name}</td>
-									<td>${stat.value}</td>
+									<td><fmt:formatNumber pattern="#" type="number" maxFractionDigits="0">${stat.value}</fmt:formatNumber></td>
 									<td width=800>${stat.text }</td>
 								</tr>
 							</c:forEach>

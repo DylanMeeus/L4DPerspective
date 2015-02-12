@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-
 <title>Overview</title>
 
 <!-- Bootstrap core CSS -->
@@ -44,10 +44,10 @@
 				<div class="masthead clearfix">
 					<div class="inner">
 						<h3 class="masthead-brand">L4D2 in perspective.</h3>
-						<h2> Beta!</h2>
-							<br>						
+						<h2>Beta!</h2>
+						<br>
 					</div>
-							<h1>Profile information</h1>
+					<h1>Profile information</h1>
 				</div>
 
 				<div class="inner cover">
@@ -57,23 +57,23 @@
 					<p>
 						<img src="${profile.avatarmediumURL}" />
 					</p>
-					<p class="lead">
-					Weapon stats
-					</p>
+					<p class="lead">Weapon stats</p>
 
 				</div>
 
 				<div class="mastfoot">
 					<div class="inner">
-					<!--  some global stats -->
-					<table border="1">
-					<!--  actually working with the Perspective object, not Stat! Maybe clean that up later -->
-					<c:forEach var="stat" items="${stats }">
-						<tr>
-						<td width=200> ${stat.name}</td> <td> ${stat.value}</td> <td width=800> ${stat.text }</td>
-						</tr>
-					</c:forEach>
-					</table>
+						<!--  some global stats -->
+						<table border="1">
+							<!--  actually working with the Perspective object, not Stat! Maybe clean that up later -->
+							<c:forEach var="stat" items="${stats }">
+								<tr>
+									<td width=200>${stat.name}</td>
+									<td><fmt:formatNumber pattern="#" maxFractionDigits="0"> ${stat.value}</fmt:formatNumber></td>
+									<td width=800>${stat.text }</td>
+								</tr>
+							</c:forEach>
+						</table>
 					</div>
 				</div>
 

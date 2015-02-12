@@ -15,17 +15,17 @@ public class PerspectiveFacade
 {
 	GeneralPerspective general = new GeneralPerspective();
 	WeaponPerspective wp = new WeaponPerspective();
-	
+
 	public PerspectiveFacade()
 	{
 
 	}
-	
+
 	public String getAdrenalineFacts(double uses)
 	{
 		return "You have used " + general.getAdrenalineVolume(uses) + " mL of adrenaline (epinephrine).";
 	}
-	
+
 	public String getDefibrillatorFact(double uses)
 	{
 		return "You have generated " + general.getTotalJouleGenerated(uses) + " Joule";
@@ -52,31 +52,33 @@ public class PerspectiveFacade
 		case 1:
 			randomFact = "If they bled out, combined they lost " + general.zombieBloodLiters(kills) + " liters of blood";
 			break;
-		case 2: 
+		case 2:
 			randomFact = general.getHeightPerspective(kills);
 			break;
 		}
 
 		return randomFact;
 	}
-	
+
 	public String getWeaponFact(Weapon weapon, int shots)
 	{
 		String randomFact = "";
 		Random rand = new Random();
 		int randomNumber = rand.nextInt(3);
-		switch(randomNumber)
+		switch (randomNumber)
 		{
-		case 0: randomFact = "Stacked, they would reach " + wp.getDistance(weapon, shots) + " meters";
-		break;
-		case 1: randomFact = wp.compareToStructure(weapon, shots);
-		break;
+		case 0:
+			randomFact = "Stacked, they would reach " + wp.getDistance(weapon, shots) + " meters";
+			break;
+		case 1:
+			randomFact = wp.compareToStructure(weapon, shots);
+			break;
 		case 2:
-			randomFact = "Buying all these bullets would have cost ~" + wp.getCostInDollar(weapon, shots) +"$";
+			randomFact = "Buying all these bullets would have cost ~" + wp.getCostInDollar(weapon, shots) + "$";
 			break;
 		}
-		
+
 		return randomFact;
 	}
-	
+
 }
